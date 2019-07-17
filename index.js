@@ -52,7 +52,10 @@
 	else{pid_limit=data_line.length-1}
 	for(var i=7,item=data_line[i];i<pid_limit;item=data_line[++i]){
 		if(item){
-		var line=item.replace(/\s{1,}/g, ',').substring(1)
+             //Here Trim is added as Porcess pid vary from 1 digit to 5 digit , due to that whitespace occurs as initial position so for removing it trim is used
+            ///Added trim Feature for removing white spaces from initial position of pid present
+            //Also No requirement of ubstring
+		var line=item.trim().replace(/\s{1,}/g, ',')
 			if(line!=""){
 				parseProces(result,line)
 			}//if
